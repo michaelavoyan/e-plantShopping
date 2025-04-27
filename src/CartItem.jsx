@@ -40,7 +40,9 @@ const CartItem = ({ onContinueShopping }) => {
 
   // Calculate total cost based on quantity for an item
   const calculateTotalCost = (item) => {
-      dispatch(calculateTotalAmount(item));
+        const quantity = item.quantity;
+        const cost = parseFloat(item.cost.substring(1)); // Remove the dollar sign and convert to number
+        return (quantity * cost);
   };
 
   return (
